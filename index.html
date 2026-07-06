@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Фиксации ОКК - вторичка франшиза</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">ОКК</p>
+        <h1>Фиксации ОКК - вторичка франшиза</h1>
+      </div>
+      <nav class="topbar-actions" aria-label="Формы ОКК">
+        <a class="nav-link" href="#">Первичка</a>
+        <a class="nav-link active" href="#">Вторичка</a>
+        <a class="nav-link" href="#">Первичка (Ташкент)</a>
+        <a class="nav-link" href="#">Первичка (Дубай)</a>
+      </nav>
+    </header>
+
+    <main class="page-shell">
+      <section class="form-section" aria-label="Поля формы">
+        <div class="section-heading">
+          <h2>Поля формы</h2>
+        </div>
+
+        <div class="field-grid">
+          <label class="field">
+            <span>Оператор <b>*</b></span>
+            <select id="operator" required>
+              <option value="">Выберите оператора</option>
+              <option>Темирлан</option>
+              <option>Виктория</option>
+              <option>Мухамедияр</option>
+              <option>Бауыржан</option>
+              <option>Ақмейір</option>
+              <option>Захра</option>
+              <option>Ажар</option>
+              <option>Даяна</option>
+              <option>Амина</option>
+              <option>Аида</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span>Клиника <b>*</b></span>
+            <select id="clinic" required>
+              <option value="">Выберите клинику</option>
+              <option>Neoluma Kyzylorda</option>
+              <option>Opatra Shymkent</option>
+              <option>Opatra Pavlodar</option>
+              <option>Cocoage Semey</option>
+              <option>Cocoage Ust-Kamenogorsk</option>
+              <option>Neoluma Petropavlovsk</option>
+              <option>Кедма Ташкент</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span>Кабинет <b>*</b></span>
+            <input id="room" type="text" required>
+          </label>
+
+          <label class="field">
+            <span>Время <b>*</b></span>
+            <input id="formTime" type="time" required>
+          </label>
+
+          <label class="field">
+            <span>Имя сотрудника(Специалиста) <b>*</b></span>
+            <input id="employeeName" type="text" required>
+          </label>
+
+          <label class="field">
+            <span>Тип фиксации <b>*</b></span>
+            <select id="fixationType" required>
+              <option value="">Выберите тип</option>
+              <option>Безошибочно отработано</option>
+              <option>Ошибки</option>
+              <option>Нью</option>
+              <option>Трихология</option>
+              <option>Диагностика тела</option>
+              <option>IV</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span>Категория ошибки</span>
+            <select id="errorCategory">
+              <option value="">Выберите категорию</option>
+              <option>Ошибки по регламенту</option>
+              <option>Другое</option>
+            </select>
+          </label>
+
+          <fieldset class="field option-field wide-field">
+            <legend>Ошибки по регламенту</legend>
+            <label><input name="regulationError" type="checkbox" value="Прикасается к чему либо и не обрабатывает руки"> Прикасается к чему либо и не обрабатывает руки</label>
+            <label><input name="regulationError" type="checkbox" value="Делает инъекции без шапочки"> Делает инъекции без шапочки</label>
+            <label><input name="regulationError" type="checkbox" value="Делает процедуры без маски"> Делает процедуры без маски</label>
+            <label><input name="regulationError" type="checkbox" value="Грубое общение с клиентом"> Грубое общение с клиентом</label>
+            <label><input name="regulationError" type="checkbox" value="Другое"> Другое</label>
+            <label><input name="regulationError" type="checkbox" value="Не отработала первое зеркало"> Не отработала первое зеркало</label>
+            <label><input name="regulationError" type="checkbox" value="Не отработала второе зеркало"> Не отработала второе зеркало</label>
+            <label><input name="regulationError" type="checkbox" value="Пациент сам подошел к зеркалу"> Пациент сам подошел к зеркалу</label>
+            <label><input name="regulationError" type="checkbox" value="Не рассказал о следующей процедуре"> Не рассказал о следующей процедуре</label>
+            <label><input name="regulationError" type="checkbox" value="Не рассказал о текущей процедуре"> Не рассказал о текущей процедуре</label>
+          </fieldset>
+
+          <div class="text-pair">
+            <div class="field text-field">
+              <div class="label-row">
+                <span>Плюсы</span>
+                <button class="plus-button" type="button" data-target="pluses" title="Добавить шаблон в Плюсы">+</button>
+              </div>
+              <textarea id="pluses" class="short-textarea" placeholder="Мой ответ"></textarea>
+            </div>
+
+            <div class="field text-field">
+              <div class="label-row">
+                <span>Минусы</span>
+                <button class="plus-button" type="button" data-target="minuses" title="Добавить шаблон в Минусы">+</button>
+              </div>
+              <textarea id="minuses" class="short-textarea" placeholder="Мой ответ"></textarea>
+            </div>
+          </div>
+
+          <label class="field">
+            <span>Фотография <b>*</b></span>
+            <input id="photo" type="file" accept="image/*">
+            <small>1 файл image, до 10 MB</small>
+          </label>
+
+          <label class="field text-field">
+            <span>Коментарий</span>
+            <textarea id="comment" class="short-textarea" placeholder="Мой ответ"></textarea>
+          </label>
+
+          <label class="field">
+            <span>Беседа во время сопровождения пациента в коридоре <b>*</b></span>
+            <select id="corridorTalk" required>
+              <option value="">Выберите вариант</option>
+              <option>Было</option>
+              <option>Не было</option>
+            </select>
+          </label>
+        </div>
+      </section>
+
+      <section class="template-drawer" id="templateDrawer" hidden>
+        <div class="drawer-head">
+          <div>
+            <h2 id="drawerTitle">Добавить в Минусы</h2>
+            <p>Выберите шаблоны, затем добавьте готовую фразу в выбранное поле.</p>
+          </div>
+          <button class="ghost-button" id="closeDrawerButton" type="button">Закрыть</button>
+        </div>
+
+        <div class="selected-box">
+          <p id="currentPreview" class="current-preview">Выберите шаблоны ниже</p>
+          <button class="primary-button" id="addToFieldButton" type="button">Добавить в поле</button>
+        </div>
+
+        <div class="category-tabs" id="categoryTabs" aria-label="Категории шаблонов"></div>
+        <div class="template-list" id="templateList"></div>
+      </section>
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="script.js"></script>
+  </body>
+</html>
