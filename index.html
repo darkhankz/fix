@@ -24,6 +24,7 @@
       <section class="form-section" aria-label="Поля формы">
         <div class="section-heading">
           <h2>Поля формы</h2>
+          <p class="draft-status" id="draftStatus">Черновик сохраняется автоматически</p>
         </div>
 
         <div class="field-grid">
@@ -42,6 +43,10 @@
               <option>Амина</option>
               <option>Аида</option>
             </select>
+            <div class="operator-memory" id="operatorMemory">
+              <span id="operatorDefaultStatus">Оператор запомнится после выбора</span>
+              <span id="operatorTodayCount">Сегодня: 0</span>
+            </div>
           </label>
 
           <label class="field">
@@ -127,25 +132,51 @@
             </div>
           </div>
 
-          <label class="field">
-            <span>Фотография <b>*</b></span>
-            <input id="photo" type="file" accept="image/*">
-            <small>1 файл image, до 10 MB</small>
-          </label>
+          <div class="field photo-field wide-field">
+            <div class="label-row">
+              <span>Фотография <b>*</b></span>
+              <label class="file-pick-button">
+                Выбрать файл
+                <input id="photo" type="file" accept="image/*">
+              </label>
+            </div>
+            <div class="paste-zone" id="pasteZone" tabindex="0">
+              <div class="paste-empty" id="pasteEmpty">
+                <strong>Ctrl + V</strong>
+                <span>Вставьте скрин, перетащите картинку или выберите файл</span>
+              </div>
+              <img id="photoPreview" alt="Предпросмотр скрина" hidden title="Нажмите, чтобы открыть крупнее">
+            </div>
+            <div class="photo-actions">
+              <small>1 файл image, до 10 MB</small>
+              <small class="draft-note" id="photoDraftNote"></small>
+              <button class="ghost-button clear-photo-button" id="clearPhotoButton" type="button" hidden>Убрать скрин</button>
+            </div>
+          </div>
 
-          <label class="field text-field">
-            <span>Коментарий</span>
-            <textarea id="comment" class="short-textarea" placeholder="Мой ответ"></textarea>
-          </label>
+          <div class="side-stack">
+            <label class="field text-field">
+              <span>Коментарий</span>
+              <textarea id="comment" class="short-textarea" placeholder="Мой ответ"></textarea>
+            </label>
 
-          <label class="field">
-            <span>Беседа во время сопровождения пациента в коридоре <b>*</b></span>
-            <select id="corridorTalk" required>
-              <option value="">Выберите вариант</option>
-              <option>Было</option>
-              <option>Не было</option>
-            </select>
-          </label>
+            <label class="field">
+              <span>Беседа во время сопровождения пациента в коридоре <b>*</b></span>
+              <select id="corridorTalk" required>
+                <option value="">Выберите вариант</option>
+                <option>Было</option>
+                <option>Не было</option>
+              </select>
+            </label>
+          </div>
+        </div>
+
+        <div class="submit-panel">
+          <div>
+            <h2>Отправка</h2>
+            <p id="submitStatus">Данные будут отправлены в тестовую Google Таблицу.</p>
+          </div>
+          <button class="primary-button submit-button" id="submitButton" type="button">Отправить</button>
         </div>
       </section>
 
@@ -169,6 +200,18 @@
     </main>
 
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <div class="image-viewer" id="imageViewer" hidden>
+      <div class="image-viewer-panel">
+        <div class="image-viewer-toolbar">
+          <span>Наведи на картинку, чтобы включить лупу</span>
+          <button class="ghost-button image-viewer-close" id="closeImageViewerButton" type="button">Закрыть</button>
+        </div>
+        <div class="image-viewer-stage" id="imageViewerStage">
+          <img id="imageViewerImg" alt="Крупный просмотр скрина">
+          <div class="magnifier-lens" id="magnifierLens" hidden></div>
+        </div>
+      </div>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>
